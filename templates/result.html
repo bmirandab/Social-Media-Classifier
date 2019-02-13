@@ -64,6 +64,9 @@
                 <script>
                     var twitterYes = {{ twitter[0][1] }}
                     var twitterNo = {{ twitter[0][0] }}
+                    
+                    var instagramYes = {{ instagram[0][1] }}
+                    var instagramNo = {{ instagram[0][0] }}
 
                     var facebookYes = {{ facebook[0][1] }}
                     var facebookNo = {{ facebook[0][0] }}
@@ -71,8 +74,7 @@
                     var youtubeYes  = {{ youtube[0][1] }}
                     var youtubeNo = {{ youtube[0][0] }}
 
-                    var instagramYes = {{ instagram[0][1] }}
-                    var instagramNo = {{ instagram[0][0] }}
+
 
                 	var barChartData = {
 			labels: ['Twitter', 'Instagram', 'Facebook', 'YouTube'],
@@ -84,9 +86,10 @@
                 borderWidth:1,
 				data: [
                     twitterNo,
+                    instagramNo,
                     facebookNo,
-                    youtubeNo,
-                    instagramNo
+                    youtubeNo
+                    
 				]
 			}, {
                 label: 'Yes',
@@ -96,9 +99,10 @@
                 borderWidth:1,
 				data: [
                     twitterYes,
+                    instagramYes,
 					facebookYes,
-					youtubeYes,
-					instagramYes
+					youtubeYes
+					
                 ]
 			}]
 
@@ -117,8 +121,10 @@
 						text: 'Social Media Prediction'
 					},
 					tooltips: {
-						mode: 'index',
-						intersect: false
+                        enabled:true,
+		
+                        intersect: true
+                   
 					},
 					responsive: true,
 					scales: {

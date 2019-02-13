@@ -25,6 +25,12 @@ def order_answers(d):
     dict = np.float_([d[name] for name in feature_order])
     return dict
 
+def score_format(pred_answer):
+    conversion=[]
+    for n in pred_answer[0]:
+        conversion.append("{:6.2f}".format(100*n).strip())
+    return [conversion]
+
 @app.route('/')
 def home() -> str:
     return render_template("home.html")
@@ -45,13 +51,19 @@ def predict():
     fb_prediction = models['facebook'].predict_proba(answers)
     yt_prediction = models['youtube'].predict_proba(answers)
 
+    # yes_answers = (twt_prediction, inst_prediction, fb_prediction, yt_prediction)
+
+    # score_format(pred_answer)
+
+    return render_template('result.html', twitter=score_format(twt_prediction), instagram=score_format(inst_prediction), facebook=score_format(fb_prediction), youtube=score_format(yt_prediction))
+
+
 @app.route('/about')
 def about() -> str:
     return render_template("about.html")
 
 
-    return render_template('result.html', twitter=twt_prediction, instagram=inst_prediction, facebook=fb_prediction, youtube=yt_prediction)
-
+    
 
 if __name__ == '__main__':
     app.run(debug=True)
