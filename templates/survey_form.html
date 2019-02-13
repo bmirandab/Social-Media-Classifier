@@ -17,20 +17,23 @@
             body {background-color: whitesmoke;}
             h1   {color: darkslategray;}
             p    {color: black;}
+            body {
+                background-image: url(https://www.toptal.com/designers/subtlepatterns/patterns/topography.png);
+            }
 
         </style>
     </head>
     <body>
 
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="#">Social Media Predictor</a>
+            <a class="navbar-brand" href="/">Social Media Predictor</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-item nav-link" href="#">Take the Survey</a>
-                    <a class="nav-item nav-link" href="#">About</a>
+                    <a class="nav-item nav-link" href="/survey">Take the Survey</a>
+                    <a class="nav-item nav-link" href="/about">About</a>
                 </div>
             </div>
         </nav>
@@ -38,9 +41,9 @@
 
 
         <div class="container">
-            <div class="row"> 
+            <div class="row d-flex justify-content-center"> 
                 <div class="col-sm-7" >
-                    <h1 class="display-4 mt-5">Take our Survey</h1>
+                    <h1 class="display-4 mt-5">Prediction Survey</h1>
 
                     <form action="/predict" method="post" enctype='application/json'>
 
@@ -79,9 +82,7 @@
 
                         <div class="form-group mt-3 mb-3">
                             <label for="snsint2">3. Do you usually use social
-                                media
-                                sites like
-                                Facebook or Twitter?</label>
+                                media platforms?</label>
                             <select class="form-control"
                                 name="snsint2" required>
                                 <option style="display:none"></option>
@@ -328,16 +329,6 @@
                 </div>
             </div>
         </div>
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-            crossorigin="anonymous"></script>
-        <script
-            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-            crossorigin="anonymous"></script>
-        <script
-            src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/js/bootstrap.min.js"
-            integrity="sha384-7aThvCh9TypR7fIc2HV4O/nFMVCBwyIUKL8XCtKE+8xgCgl/PQGuFsvShjr74PBp"
-            crossorigin="anonymous"></script>
+
     </body>
 </html>

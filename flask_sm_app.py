@@ -26,6 +26,10 @@ def order_answers(d):
     return dict
 
 @app.route('/')
+def home() -> str:
+    return render_template("home.html")
+
+@app.route('/survey')
 def survey() -> str:
     return render_template("survey_form.html")
 
@@ -41,6 +45,9 @@ def predict():
     fb_prediction = models['facebook'].predict_proba(answers)
     yt_prediction = models['youtube'].predict_proba(answers)
 
+@app.route('/about')
+def about() -> str:
+    return render_template("about.html")
 
 
     return render_template('result.html', twitter=twt_prediction, instagram=inst_prediction, facebook=fb_prediction, youtube=yt_prediction)
