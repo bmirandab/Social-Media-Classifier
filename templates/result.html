@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+        <head>
+                <!-- Required meta tags -->
+                <meta charset="utf-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1,
+                    shrink-to-fit=no">
+        
+                <!-- Bootstrap CSS -->
+                <link rel="stylesheet"
+                    href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css"
+                    integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA"
+                    crossorigin="anonymous">
+        
+                <title>Prediction Results</title>
+                <style>
+                    body {background-color: whitesmoke;}
+                    h1   {color: darkslategray;}
+                    p    {color: black;}
+        
+                </style>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.min.js"></script>
+        </head>
+        <body>
+
+                <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                    <a class="navbar-brand" href="#">Social Media Predictor</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                        <div class="navbar-nav">
+                            <!-- <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a> -->
+                            <a class="nav-item nav-link" href="#">Take the Survey</a>
+                            <a class="nav-item nav-link" href="#">About</a>
+                        </div>
+                    </div>
+                </nav>
+
+                <div class="container">
+                    <div class="row"> 
+                        <div class="col-sm-9" >
+                            <h1 class="display-4 mt-5">Your Prediction Results</h1>
+        
+                            <form action="/predict" method="post" enctype='application/json'>
+        
+                                <p class="lead">
+                                    The stacked bars below represent our prediction. It denotes the probability of you being a user 
+                                    of one of the social media platforms we measured. The color green corresponds to "Yes" 
+                                    (you are a user of that platform), while orange means "No" (you are not a user of this social media). 
+                                    The color that is the largest is your prediction.
+                                    <br>
+                                    <br>
+                                    For example, if "No" is above 50%, you are predicted as not being a user. If "Yes",
+                                    the opposite is true, if the color green goes below 50% you are predicted as 
+                                    a user of that social media platform. 
+                                </p>
+
+
+                                <canvas id="chart"></canvas>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <script>
+                    var twitterYes = {{ twitter[0][1] }}
+                    var twitterNo = {{ twitter[0][0] }}
+
+                    var facebookYes = {{ facebook[0][1] }}
+                    var facebookNo = {{ facebook[0][0] }}
+
+                    var youtubeYes  = {{ youtube[0][1] }}
+                    var youtubeNo = {{ youtube[0][0] }}
+
+                    var instagramYes = {{ instagram[0][1] }}
+                    var instagramNo = {{ instagram[0][0] }}
+
+                	var barChartData = {
+			labels: ['Twitter', 'Instagram', 'Facebook', 'YouTube'],
+			datasets: [{
+                label: 'No',
+
+                backgroundColor: "rgba(255, 159, 64, 0.3)",
+                borderColor:"rgb(255, 159, 64)",
+                borderWidth:1,
+				data: [
+                    twitterNo,
+                    facebookNo,
+                    youtubeNo,
+                    instagramNo
+				]
+			}, {
+                label: 'Yes',
+                
+                backgroundColor: "rgba(74, 194, 179, 0.3)",
+                borderColor:"rgb(74, 194, 179)",
+                borderWidth:1,
+				data: [
+                    twitterYes,
+					facebookYes,
+					youtubeYes,
+					instagramYes
+                ]
+			}]
+
+		};
+		window.onload = function() {
+			var ctx = document.getElementById('chart').getContext('2d');
+			window.myBar = new Chart(ctx, {
+				type: 'bar',
+				data: barChartData,
+				options: {
+                    animation: {
+                        easing:'easeInExpo'
+                    },
+					title: {
+						display: false,
+						text: 'Social Media Prediction'
+					},
+					tooltips: {
+						mode: 'index',
+						intersect: false
+					},
+					responsive: true,
+					scales: {
+						xAxes: [{
+							stacked: true,
+						}],
+						yAxes: [{
+							stacked: true
+						}]
+					}
+				}
+			});
+        };
+        
+
+                </script>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br> 
+        </body>
+
+
+</html>

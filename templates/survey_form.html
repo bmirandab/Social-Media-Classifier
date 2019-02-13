@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1,
+            shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css"
+            integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA"
+            crossorigin="anonymous">
+
+        <title>multiple-choice quiz form</title>
+        <style>
+            body {background-color: whitesmoke;}
+            h1   {color: darkslategray;}
+            p    {color: black;}
+
+        </style>
+    </head>
+    <body>
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">Social Media Predictor</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link" href="#">Take the Survey</a>
+                    <a class="nav-item nav-link" href="#">About</a>
+                </div>
+            </div>
+        </nav>
+
+
+
+        <div class="container">
+            <div class="row"> 
+                <div class="col-sm-7" >
+                    <h1 class="display-4 mt-5">Take our Survey</h1>
+
+                    <form action="/predict" method="post" enctype='application/json'>
+
+                        <p class="lead">
+                            Choose the answer to each multiple-choice question,
+                            and click on the
+                            "Submit" button to find out what social media
+                            platform we predict you use.
+                        </p>
+
+
+                        <div class="form-group mt-5 mb-3">
+                            <label for="intfreq">1. How
+                                often do you use the internet?</label>
+                            <select class="form-control"
+                                name="intfreq" required>
+                                <option value="" disabled selected hidden></option>
+                                <option value="1">All the time</option>
+                                <option value="2">A couple times a day</option>
+                                <option value="3">About once a day</option>
+                                <option value="4">Several times a week</option>
+                                <option value="5">Not very often</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group mt-3 mb-3">
+                            <label for="smart2">2. Do you
+                                have a cell phone/smartphone?</label>
+                            <select class="form-control"
+                                name="smart2" required>
+                                <option style="display:none"></option>
+                                <option value="1">Yes</option>
+                                <option value="2">No</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group mt-3 mb-3">
+                            <label for="snsint2">3. Do you usually use social
+                                media
+                                sites like
+                                Facebook or Twitter?</label>
+                            <select class="form-control"
+                                name="snsint2" required>
+                                <option style="display:none"></option>
+                                <option value="1">Yes</option>
+                                <option value="2">No</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group mt-3 mb-3">
+                            <label for="device1b">4. Do you have a tablet?</label>
+                            <select class="form-control"
+                                name="device1b" required>
+                                <option style="display:none"></option>
+                                <option value="1">Yes</option>
+                                <option value="2">No</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group mt-3 mb-3">
+                            <label for="device1c">5. Do you have a desktop or
+                                laptop computer?</label>
+                            <select class="form-control"
+                                name="device1c" required>
+                                <option style="display:none"></option>
+                                <option value="1">Yes</option>
+                                <option value="2">No</option>
+                            </select>
+                        </div>
+
+
+                        <div class="form-group mt-3 mb-3">
+                            <label for="pial5b">6. How hard would it be to give
+                                up your
+                                cellphone?</label>
+                            <select class="form-control"
+                                name="pial5b" required>
+                                <option style="display:none"></option>
+                                <option value="1">Extremely hard</option>
+                                <option value="2">Kind of hard</option>
+                                <option value="3">Not too hard</option>
+                                <option value="4">Not hard at all </option>
+                                <option value="5">Impossible</option>
+                                <option value="6">Do not use/Do not have</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group mt-3 mb-3">
+                            <label for="pial5c">7. How hard would it be to give
+                                up using
+                                the Internet?</label>
+                            <select class="form-control"
+                                name="pial5c" required>
+                                <option style="display:none"></option>
+                                <option value="1">Extremely hard</option>
+                                <option value="2">Kind of hard</option>
+                                <option value="3">Not too hard</option>
+                                <option value="4">Not hard at all </option>
+                                <option value="5">Impossible</option>
+                                <option value="6">Do not use/Do not have</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group mt-3 mb-3">
+                            <label for="pial11">8. Do you think that the
+                                internet has been a 'good
+                                thing' or
+                                'bad thing' for society?</label>
+                            <select class="form-control"
+                                name="pial11" required>
+                                <option style="display:none"></option>
+                                <option value="1">Good thing</option>
+                                <option value="2">Bad thing</option>
+                                <option value="3">A little bit of both</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group mt-3 mb-3">
+                            <label for="pial12">9. Considering the advantages
+                                and disadvantages,
+                                how has the internet been for you?
+                            </label>
+                            <select class="form-control"
+                                name="pial12" required>
+                                <option style="display:none"></option>
+                                <option value="1">It's been a good thing</option>
+                                <option value="2">It's been a bad thing</option>
+                                <option value="3">It's a little bit of both</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group mt-3 mb-3">
+                            <label for="books1">10. How many books have you read
+                                in the past 12
+                                months (year)? </label>
+                            <input type="text" class="form-control" name="books1"
+                                 maxlength="2" required min="0" max="97">
+                        </div>
+
+                        <div class="form-group mt-3 mb-3">
+                            <label for="books2a">11. Of those books, were any of
+                                them printed books?</label>
+                            <select class="form-control"
+                                name="books2a" required>
+                                <option style="display:none"></option>
+                                <option value="1">Yes</option>
+                                <option value="2">No</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group mt-3 mb-3">
+                            <label for="books2b">12. Of those books, were any of
+                                them audiobooks?</label>
+                            <select class="form-control"
+                                name="books2b" required>
+                                <option style="display:none"></option>
+                                <option value="1">Yes</option>
+                                <option value="2">No</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group mt-3 mb-3">
+                            <label for="books2c">13. Of those books, were any of
+                                them e-books?</label>
+                            <select class="form-control"
+                                name="books2c" required>
+                                <option style="display:none"></option>
+                                <option value="1">Yes</option>
+                                <option value="2">No</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group mt-3 mb-3">
+                            <label for="sex">14. Select your gender</label>
+                            <select class="form-control"
+                                name="sex" required>
+                                <option style="display:none"></option>
+                                <option value="1">Male</option>
+                                <option value="2">Female</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group mt-3 mb-3">
+                            <label for="age">15. How old are you? </label>
+                            <input type="number" class="form-control" name="age"
+                                 required min="18" max="97">
+                        </div>
+
+                        <div class="form-group mt-3 mb-3">
+                            <label for="marital">16. What is your marital
+                                status?</label>
+                            <select class="form-control"
+                                name="marital" required>
+                                <option style="display:none"></option>
+                                <option value="1">Married</option>
+                                <option value="2">Living with partner</option>
+                                <option value="3">Divorced</option>
+                                <option value="4">Separated</option>
+                                <option value="5">Widowed</option>
+                                <option value="6">Never been married</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group mt-3 mb-3">
+                            <label for="educ2">17. What is the highest level of
+                                school
+                                completed or
+                                degree you have received?</label>
+                            <select class="form-control"
+                                name="educ2" required>
+                                <option style="display:none"></option>
+                                <option value="1">Less than high school (Grades
+                                    1-8 or no formal schooling)</option>
+                                <option value="2">High school incomplete (Grades
+                                    9-11 or
+                                    Grade 12 with
+                                    NO diploma)</option>
+                                <option value="3">High school graduate (Grade 12
+                                    with
+                                    diploma or GED
+                                    certificate)</option>
+                                <option value="4">Some college, no degree
+                                    (includes some
+                                    community
+                                    college)</option>
+                                <option value="5">Two-year associate degree from
+                                    a college
+                                    or
+                                    university</option>
+                                <option value="6">Four-year college or
+                                    university
+                                    degree/Bachelor’s
+                                    degree</option>
+                                <option value="7">Some postgraduate or
+                                    professional
+                                    schooling, no
+                                    postgraduate degree</option>
+                                <option value="8">Postgraduate or professional
+                                    degree,
+                                    including
+                                    master’s, doctorate, medical or law degree</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group mt-3 mb-3">
+                            <label for="emplnw">18. What is your employment
+                                status?</label>
+                            <select class="form-control"
+                                name="emplnw" required>
+                                <option style="display:none"></option>
+                                <option value="1">Employed full-time/Own
+                                    business/Self-employed</option>
+                                <option value="2">Employed part-time</option>
+                                <option value="3">Retired</option>
+                                <option value="4">Not employed/Student/Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group mt-3 mb-3">
+                            <label for="party">19. In politics today, do you
+                                consider yourself...</label>
+                            <select class="form-control"
+                                name="party" required>
+                                <option style="display:none"></option>
+                                <option value="1">Republican</option>
+                                <option value="2">Democrat</option>
+                                <option value="3">Independent</option>
+                                <option value="4">No preference/Other</option>
+                            </select>
+                        </div>
+
+
+                        <br>
+                        <button type="submit" class="btn btn-outline-dark btn-lg
+                            btn-block">Submit</button>
+                        <br>
+                        <br>
+                        <br>
+                        <!-- <nav class="navbar bottom navbar-dark bg-dark">
+                            <a class="navbar-brand" href="#">Learn more about the author</a>
+                        </nav> -->
+                        <br>
+                        <br>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+        <script
+            src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/js/bootstrap.min.js"
+            integrity="sha384-7aThvCh9TypR7fIc2HV4O/nFMVCBwyIUKL8XCtKE+8xgCgl/PQGuFsvShjr74PBp"
+            crossorigin="anonymous"></script>
+    </body>
+</html>
