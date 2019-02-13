@@ -42,25 +42,9 @@ def predict():
     yt_prediction = models['youtube'].predict_proba(answers)
 
 
+
     return render_template('result.html', twitter=twt_prediction, instagram=inst_prediction, facebook=fb_prediction, youtube=yt_prediction)
 
-# @app.route("/predict", methods=["POST", "GET"])
-# def predict():
-
-#     x_input = []
-#     for i in range(len(fb_model.feature_names)):
-#         f_value = float(
-#             request.args.get(fb_model.feature_names[i], "0")
-#             )
-#         x_input.append(f_value)
-
-#     pred_probs = fb_model.predict_proba([x_input]).flat
-
-#     return render_template('predict.html',
-#     feature_names=lr_model.feature_names,
-#     x_input=x_input,
-#     prediction=np.argsort(pred_probs)[::-1][0]
-#     )
 
 if __name__ == '__main__':
     app.run(debug=True)

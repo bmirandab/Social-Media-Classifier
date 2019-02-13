@@ -1,1 +1,1 @@
-web: gunicorn predictor_app:app
+web: gunicorn flask_sm_app:app
